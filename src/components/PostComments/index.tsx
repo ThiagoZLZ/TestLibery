@@ -3,7 +3,7 @@ import styles from './PostComments.module.css';
 
 import Comment from '../../models/Comment';
 
-const Post = () => {
+const PostComments = () => {
     const [comments, setComments] = useState<Comment[]>([]);
     const [tempComment, setTempComment] = useState('');
 
@@ -16,9 +16,9 @@ const Post = () => {
 
     return (
         <div>
-            <ul className={styles['post-comments']}>
+            <ul data-testid="post-comments" className={styles['post-comments']}>
                 {comments.map(({ comment, id }) => (
-                    <li className={styles['post-comment']} key={id}>
+                    <li className={styles['post-comment']} key={id} data-testid="post-comment">w
                         <p className={styles['post-comment-content']}>
                             {comment}
                         </p>
@@ -35,4 +35,4 @@ const Post = () => {
     );
 }
 
-export default Post;
+export default PostComments;
